@@ -82,6 +82,15 @@
   .wx-chip .t{font-size:15px;font-weight:800;font-family:var(--mono);}
   .wx-src{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;}
   @media(max-width:560px){.wx-src{width:100%;margin-left:0;}}
+  .flband{border-bottom:1px solid var(--line);background:#100d0d;}
+  .fl-inner{max-width:900px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;}
+  .fl-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#ffb454;margin-right:4px;}
+  a.fl-chip{display:flex;align-items:baseline;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;text-decoration:none;}
+  a.fl-chip:hover{border-color:#ffb454;text-decoration:none;}
+  a.fl-chip .c{font-size:12px;color:var(--mut);}
+  a.fl-chip .p{font-size:15px;font-weight:800;font-family:var(--mono);color:var(--tx);}
+  .fl-src{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;}
+  @media(max-width:560px){.fl-src{width:100%;margin-left:0;}}
   footer{border-top:1px solid var(--line);margin-top:40px;}
   .foot-inner{max-width:900px;margin:0 auto;padding:26px 20px 50px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em;line-height:1.9;}
   @media(max-width:560px){.hero-inner{padding:30px 18px 24px;}.sec-c{display:none;}.nav-brand{font-size:14px;}}
@@ -129,6 +138,17 @@
     <span class="wx-chip"><span class="c">샤먼</span><span class="e">☁️</span><span class="t">29.3°</span></span>
     <span class="wx-chip"><span class="c">광저우</span><span class="e">⛈️</span><span class="t">28.6°</span></span>
     <span class="wx-src">현지 16:15 · open-meteo.com</span>
+  </div>
+</div>
+
+<div class="flband">
+  <div class="fl-inner">
+    <span class="fl-label">서울 출발 왕복 직항 최저가</span>
+    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-PEK-20260629/PEK-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">베이징</span><span class="p">394,700원</span></a>
+    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-PVG-20260629/PVG-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">상하이</span><span class="p">406,500원</span></a>
+    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-XMN-20260629/XMN-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">샤먼</span><span class="p">415,674원</span></a>
+    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-CAN-20260629/CAN-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">광저우</span><span class="p">421,712원</span></a>
+    <span class="fl-src">06.29~07.06 왕복 · 직항 · 네이버 참고가</span>
   </div>
 </div>
 
