@@ -65,6 +65,14 @@
   .top3 li::before{content:counter(t);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:7px;background:var(--tx);color:#111;font-family:var(--mono);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;}
   .top3 b{color:#fff;}
 
+  .fxband{border-bottom:1px solid var(--line);background:#101013;}
+  .fx-inner{max-width:900px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;}
+  .fx-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-right:4px;}
+  .fx-chip{display:flex;align-items:baseline;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;}
+  .fx-chip .k{font-size:12px;color:var(--mut);}
+  .fx-chip .v{font-size:15px;font-weight:800;font-family:var(--mono);}
+  .fx-src{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;}
+  @media(max-width:560px){.fx-src{width:100%;margin-left:0;}}
   footer{border-top:1px solid var(--line);margin-top:40px;}
   .foot-inner{max-width:900px;margin:0 auto;padding:26px 20px 50px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em;line-height:1.9;}
   @media(max-width:560px){.hero-inner{padding:30px 18px 24px;}.sec-c{display:none;}.nav-brand{font-size:14px;}}
@@ -93,6 +101,16 @@
     </div>
   </div>
 </header>
+
+<div class="fxband">
+  <div class="fx-inner">
+    <span class="fx-label">오늘의 환율</span>
+    <span class="fx-chip"><span class="k">원/달러</span><span class="v">1,536.24</span></span>
+    <span class="fx-chip"><span class="k">원/위안</span><span class="v">226.46</span></span>
+    <span class="fx-chip"><span class="k">위안/달러</span><span class="v">6.78</span></span>
+    <span class="fx-src">기준 2026-06-19 · open.er-api.com</span>
+  </div>
+</div>
 
 <div class="wrap">
 
