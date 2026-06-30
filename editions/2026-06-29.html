@@ -7,93 +7,122 @@
 <meta name="description" content="중국 관련 뉴스 일일 브리프 — 중앙일보 더 차이나 · 연합뉴스 중국" />
 <style>
   :root{
-    --bg:#0d0d0f; --panel:#16161a; --panel2:#1d1d22; --line:#2a2a31;
-    --tx:#ececf0; --mut:#9a9aa6; --dim:#6f6f7a; --acc:#e23b3b; --link:#7db1ff;
+    --bg:#0a0a0c; --bg2:#0e0e12; --panel:#121217; --panel2:#16161c;
+    --line:#24242c; --line2:#1a1a20;
+    --tx:#e9e9ef; --mut:#9fa0ac; --dim:#6a6b76; --faint:#4a4b54;
+    --acc:#cf4640; --acc-soft:#e07a74; --link:#8fb8f4;
     --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
     --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --mw:840px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;}
-  body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.6;overflow-x:hidden;}
+  body{
+    background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.62;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    background-image:radial-gradient(1200px 600px at 50% -10%,rgba(207,70,64,.05),transparent 70%);
+    background-repeat:no-repeat;
+  }
   a{color:var(--link);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  .wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+  a:hover{text-decoration:underline;text-underline-offset:2px;}
+  .wrap{max-width:var(--mw);margin:0 auto;padding:0 24px;}
 
-  nav.top{position:sticky;top:0;z-index:10;background:rgba(13,13,15,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .nav-inner{max-width:900px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;}
-  .nav-brand{font-weight:800;letter-spacing:-.01em;font-size:15px;}
+  /* ── nav ── */
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(10,10,12,.82);backdrop-filter:blur(10px) saturate(120%);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:var(--mw);margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:16px;}
+  .nav-brand{font-weight:700;letter-spacing:-.01em;font-size:15px;}
   .nav-brand .dot{color:var(--acc);}
-  .nav-links{margin-left:auto;display:flex;gap:18px;font-size:13px;}
-  .nav-links a{color:var(--mut);}
-  .nav-links a.on{color:var(--tx);font-weight:700;}
+  .nav-links{margin-left:auto;display:flex;gap:20px;font-size:12.5px;}
+  .nav-links a{color:var(--mut);position:relative;padding-bottom:2px;}
+  .nav-links a.on{color:var(--tx);}
+  .nav-links a.on::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:var(--acc);}
 
-  header.hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111114,#0d0d0f);}
-  .hero-inner{max-width:900px;margin:0 auto;padding:40px 20px 32px;}
-  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:14px;}
-  h1.title{font-size:clamp(28px,6vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0 0 14px;}
-  h1.title span{font-weight:300;color:var(--mut);}
-  .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--dim);font-family:var(--mono);}
-  .meta b{color:var(--mut);font-weight:600;}
+  /* ── report header ── */
+  header.hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg2),var(--bg));}
+  .hero-inner{max-width:var(--mw);margin:0 auto;padding:54px 24px 40px;}
+  .masthead-rule{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:26px;}
+  .masthead-rule .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--acc),transparent);opacity:.55;}
+  h1.title{font-family:var(--serif);font-size:clamp(32px,6vw,52px);font-weight:600;letter-spacing:-.015em;line-height:1.04;margin:0 0 6px;}
+  h1.title .sub{display:block;font-size:clamp(15px,2.4vw,19px);font-weight:400;font-style:italic;color:var(--mut);letter-spacing:0;margin-top:12px;}
+  .meta{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .meta .cell{flex:1;min-width:150px;padding:14px 18px 13px;border-right:1px solid var(--line2);}
+  .meta .cell:last-child{border-right:none;}
+  .meta .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:5px;}
+  .meta .val{font-size:14px;color:var(--tx);font-weight:600;}
+  @media(max-width:560px){.meta .cell{flex:100%;min-width:0;border-right:none;border-bottom:1px solid var(--line2);}.meta .cell:last-child{border-bottom:none;}}
 
-  .flowbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:28px 0;}
-  .flowbox h2{font-size:13px;letter-spacing:.04em;color:var(--mut);margin:0 0 14px;text-transform:uppercase;font-family:var(--mono);}
-  .flowbox ol{margin:0;padding:0;list-style:none;counter-reset:f;}
-  .flowbox li{counter-increment:f;position:relative;padding:8px 0 8px 34px;font-size:15px;border-bottom:1px solid var(--line);}
-  .flowbox li:last-child{border-bottom:none;}
-  .flowbox li::before{content:counter(f);position:absolute;left:0;top:9px;width:22px;height:22px;border-radius:50%;background:var(--acc);color:#fff;font-family:var(--mono);font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700;}
-  .flowbox b{color:var(--tx);}
+  /* ── indicator bands ── */
+  .bands{border-bottom:1px solid var(--line);background:var(--bg2);}
+  .band{max-width:var(--mw);margin:0 auto;padding:13px 24px;display:flex;flex-wrap:wrap;gap:9px 11px;align-items:center;border-bottom:1px solid var(--line2);}
+  .band:last-child{border-bottom:none;}
+  .band-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);min-width:120px;}
+  .band-label.fx{color:var(--acc-soft);}
+  .band-label.wx{color:#6fb0ff;}
+  .band-label.fl{color:#e0a85a;}
+  .chip{display:flex;align-items:baseline;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:7px 12px;transition:border-color .15s;}
+  .chip .k{font-size:11.5px;color:var(--mut);}
+  .chip .e{font-size:15px;line-height:1;align-self:center;}
+  .chip .v{font-size:14px;font-weight:700;font-family:var(--mono);color:var(--tx);}
+  a.chip{cursor:pointer;}
+  a.chip:hover{border-color:#e0a85a;text-decoration:none;}
+  .band-src{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-left:auto;}
+  @media(max-width:560px){.band-src{width:100%;margin-left:0;}.band-label{min-width:0;width:100%;}}
 
-  section{margin:38px 0;}
-  .sec-h{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--acc);padding-bottom:8px;margin-bottom:6px;}
-  .sec-n{font-family:var(--mono);font-size:12px;color:var(--acc);font-weight:700;}
-  .sec-t{font-size:21px;font-weight:800;letter-spacing:-.01em;}
-  .sec-c{font-size:12px;color:var(--dim);margin-left:auto;font-family:var(--mono);}
-  ol.news{list-style:none;margin:0;padding:0;counter-reset:n;}
-  ol.news li{counter-increment:n;position:relative;padding:13px 0 13px 38px;border-bottom:1px solid var(--line);}
-  ol.news li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:15px;font-family:var(--mono);font-size:12px;color:var(--dim);}
-  ol.news .t{font-size:15.5px;font-weight:700;color:var(--tx);display:block;margin-bottom:3px;}
+  /* ── executive summary ── */
+  .summary{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:40px 0;position:relative;overflow:hidden;}
+  .summary::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--acc),transparent);}
+  .summary h2{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc-soft);margin:0 0 18px;display:flex;align-items:center;gap:10px;}
+  .summary h2::after{content:"";flex:1;height:1px;background:var(--line);}
+  .summary ol{margin:0;padding:0;list-style:none;counter-reset:f;}
+  .summary li{counter-increment:f;position:relative;padding:11px 0 11px 40px;font-size:14.5px;border-bottom:1px solid var(--line2);}
+  .summary li:last-child{border-bottom:none;}
+  .summary li::before{content:"0" counter(f);position:absolute;left:0;top:12px;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--acc);letter-spacing:-.02em;}
+  .summary b{color:#fff;font-weight:700;}
+
+  /* ── sections ── */
+  section{margin:48px 0;}
+  .sec-h{display:flex;align-items:baseline;gap:18px;padding-bottom:10px;margin-bottom:8px;border-bottom:1px solid var(--line);}
+  .sec-n{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1;color:var(--faint);letter-spacing:-.02em;min-width:46px;}
+  .sec-t{font-size:21px;font-weight:700;letter-spacing:-.015em;color:var(--tx);}
+  .sec-c{font-size:11px;color:var(--dim);margin-left:auto;font-family:var(--mono);letter-spacing:.06em;align-self:center;}
+  ol.news{list-style:none;margin:0;padding:0;}
+  ol.news li{position:relative;padding:15px 0 16px 0;border-bottom:1px solid var(--line2);transition:padding-left .18s;}
+  ol.news li:hover{padding-left:8px;}
+  ol.news li::after{content:"";position:absolute;left:-12px;top:18px;bottom:16px;width:2px;background:var(--acc);opacity:0;transition:opacity .18s;}
+  ol.news li:hover::after{opacity:.7;}
+  ol.news .t{font-size:15.5px;font-weight:700;color:var(--tx);display:block;margin-bottom:4px;line-height:1.45;}
   ol.news .t a{color:var(--tx);}
-  ol.news .t a:hover{color:var(--link);}
-  ol.news .d{font-size:13.5px;color:var(--mut);line-height:1.55;}
+  ol.news .t a:hover{color:var(--acc-soft);text-decoration:none;}
+  ol.news .d{font-size:13.5px;color:var(--mut);line-height:1.58;}
 
-  .top3{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:24px;margin:38px 0;}
-  .top3 .sec-h{border-color:var(--tx);}
-  .top3 .sec-t,.top3 .sec-n{color:var(--tx);}
-  .top3 ol{list-style:none;margin:14px 0 0;padding:0;counter-reset:t;}
-  .top3 li{counter-increment:t;position:relative;padding:12px 0 12px 40px;font-size:15px;line-height:1.6;border-bottom:1px solid var(--line);}
-  .top3 li:last-child{border-bottom:none;}
-  .top3 li::before{content:counter(t);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:7px;background:var(--tx);color:#111;font-family:var(--mono);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-  .top3 b{color:#fff;}
+  /* ── analysis (Top 3) ── */
+  .analysis{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:30px;margin:48px 0 40px;}
+  .analysis .sec-h{border-color:var(--line);align-items:center;}
+  .analysis .sec-n{font-size:13px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--acc-soft);min-width:0;font-weight:700;}
+  .analysis .sec-t{font-size:20px;}
+  .analysis ol{list-style:none;margin:18px 0 0;padding:0;counter-reset:t;}
+  .analysis li{counter-increment:t;position:relative;padding:16px 0 16px 46px;font-size:14.5px;line-height:1.62;border-bottom:1px solid var(--line2);color:var(--mut);}
+  .analysis li:last-child{border-bottom:none;}
+  .analysis li::before{content:counter(t);position:absolute;left:0;top:15px;width:28px;height:28px;border-radius:8px;border:1px solid var(--acc);background:rgba(207,70,64,.08);color:var(--acc-soft);font-family:var(--serif);font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+  .analysis b{color:var(--tx);font-weight:700;}
 
-  .fxband{border-bottom:1px solid var(--line);background:#101013;}
-  .fx-inner{max-width:900px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;}
-  .fx-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-right:4px;}
-  .fx-chip{display:flex;align-items:baseline;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;}
-  .fx-chip .k{font-size:12px;color:var(--mut);}
-  .fx-chip .v{font-size:15px;font-weight:800;font-family:var(--mono);}
-  .fx-src{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;}
-  @media(max-width:560px){.fx-src{width:100%;margin-left:0;}}
-  .wxband{border-bottom:1px solid var(--line);background:#0e0e11;}
-  .wx-inner{max-width:900px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;}
-  .wx-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#4ea3ff;margin-right:4px;}
-  .wx-chip{display:flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;}
-  .wx-chip .c{font-size:12px;color:var(--mut);}
-  .wx-chip .e{font-size:16px;line-height:1;}
-  .wx-chip .t{font-size:15px;font-weight:800;font-family:var(--mono);}
-  .wx-src{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;}
-  @media(max-width:560px){.wx-src{width:100%;margin-left:0;}}
-  .flband{border-bottom:1px solid var(--line);background:#100d0d;}
-  .fl-inner{max-width:900px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;}
-  .fl-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#ffb454;margin-right:4px;}
-  a.fl-chip{display:flex;align-items:baseline;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;text-decoration:none;}
-  a.fl-chip:hover{border-color:#ffb454;text-decoration:none;}
-  a.fl-chip .c{font-size:12px;color:var(--mut);}
-  a.fl-chip .p{font-size:15px;font-weight:800;font-family:var(--mono);color:var(--tx);}
-  .fl-src{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;}
-  @media(max-width:560px){.fl-src{width:100%;margin-left:0;}}
-  footer{border-top:1px solid var(--line);margin-top:40px;}
-  .foot-inner{max-width:900px;margin:0 auto;padding:26px 20px 50px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em;line-height:1.9;}
-  @media(max-width:560px){.hero-inner{padding:30px 18px 24px;}.sec-c{display:none;}.nav-brand{font-size:14px;}}
+  /* ── colophon ── */
+  footer{border-top:1px solid var(--line);margin-top:56px;background:var(--bg2);}
+  .foot-inner{max-width:var(--mw);margin:0 auto;padding:34px 24px 60px;}
+  .foot-mark{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:14px;}
+  .foot-mark .dot{color:var(--acc);}
+  .foot-grid{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.07em;line-height:1.95;}
+  .foot-grid b{color:var(--mut);font-weight:600;}
+
+  @media(max-width:560px){
+    .hero-inner{padding:38px 20px 30px;}
+    .wrap{padding:0 20px;}
+    .sec-c{display:none;}
+    .sec-n{font-size:28px;min-width:38px;}
+    .summary,.analysis{padding:22px 20px;}
+    .analysis li{padding-left:42px;}
+  }
 </style>
 </head>
 <body>
@@ -110,52 +139,46 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="kicker">China Daily Brief</div>
-    <h1 class="title">차이나 데일리 브리프 <span>중국 동향 한눈에</span></h1>
+    <div class="masthead-rule"><span>China Daily Brief</span><span class="ln"></span><span>Daily Intelligence Report</span></div>
+    <h1 class="title">차이나 데일리 브리프<span class="sub">중국 동향 한눈에 — 외교·경제·기술·관계·사회 데일리 리포트</span></h1>
     <div class="meta">
-      <span><b>날짜</b> 2026-06-29</span>
-      <span><b>소스</b> 중앙일보 더 차이나 · 연합뉴스 중국</span>
-      <span><b>기사</b> 36건 (중앙 17 · 연합 19)</span>
+      <div class="cell"><span class="lbl">Date</span><span class="val">2026-06-29</span></div>
+      <div class="cell"><span class="lbl">Sources</span><span class="val">중앙일보 더 차이나 · 연합뉴스 중국</span></div>
+      <div class="cell"><span class="lbl">Articles</span><span class="val">36건 · 중앙 17 / 연합 19</span></div>
     </div>
   </div>
 </header>
 
-<div class="fxband">
-  <div class="fx-inner">
-    <span class="fx-label">오늘의 환율</span>
-    <span class="fx-chip"><span class="k">원/달러</span><span class="v">1,536.79</span></span>
-    <span class="fx-chip"><span class="k">원/위안</span><span class="v">225.87</span></span>
-    <span class="fx-chip"><span class="k">위안/달러</span><span class="v">6.80</span></span>
-    <span class="fx-src">기준 2026-06-29 · open.er-api.com</span>
+<div class="bands">
+  <div class="band">
+    <span class="band-label fx">환율 · FX</span>
+    <span class="chip"><span class="k">원/달러</span><span class="v">1,536.79</span></span>
+    <span class="chip"><span class="k">원/위안</span><span class="v">225.87</span></span>
+    <span class="chip"><span class="k">위안/달러</span><span class="v">6.80</span></span>
+    <span class="band-src">기준 2026-06-29 · open.er-api.com</span>
   </div>
-</div>
-
-<div class="wxband">
-  <div class="wx-inner">
-    <span class="wx-label">중국 날씨</span>
-    <span class="wx-chip"><span class="c">베이징</span><span class="e">☁️</span><span class="t">28.5°</span></span>
-    <span class="wx-chip"><span class="c">상하이</span><span class="e">🌦️</span><span class="t">26.3°</span></span>
-    <span class="wx-chip"><span class="c">샤먼</span><span class="e">⛈️</span><span class="t">29.0°</span></span>
-    <span class="wx-chip"><span class="c">광저우</span><span class="e">🌦️</span><span class="t">28.9°</span></span>
-    <span class="wx-src">현지 14:15 · open-meteo.com</span>
+  <div class="band">
+    <span class="band-label wx">날씨 · Weather</span>
+    <span class="chip"><span class="k">베이징</span><span class="e">☁️</span><span class="v">28.5°</span></span>
+    <span class="chip"><span class="k">상하이</span><span class="e">🌦️</span><span class="v">26.3°</span></span>
+    <span class="chip"><span class="k">샤먼</span><span class="e">⛈️</span><span class="v">29.0°</span></span>
+    <span class="chip"><span class="k">광저우</span><span class="e">🌦️</span><span class="v">28.9°</span></span>
+    <span class="band-src">현지 14:15 · open-meteo.com</span>
   </div>
-</div>
-
-<div class="flband">
-  <div class="fl-inner">
-    <span class="fl-label">서울 출발 왕복 직항 최저가</span>
-    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-PEK-20260629/PEK-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">베이징</span><span class="p">545,100원</span></a>
-    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-PVG-20260629/PVG-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">상하이</span><span class="p">60,940원</span></a>
-    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-XMN-20260629/XMN-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">샤먼</span><span class="p">469,500원</span></a>
-    <a class="fl-chip" href="https://flight.naver.com/flights/international/ICN-CAN-20260629/CAN-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="c">광저우</span><span class="p">142,621원</span></a>
-    <span class="fl-src">06.29~07.06 왕복 · 직항 · 네이버 참고가</span>
+  <div class="band">
+    <span class="band-label fl">항공 · 왕복 직항 최저가</span>
+    <a class="chip" href="https://flight.naver.com/flights/international/ICN-PEK-20260629/PEK-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="k">베이징</span><span class="v">545,100원</span></a>
+    <a class="chip" href="https://flight.naver.com/flights/international/ICN-PVG-20260629/PVG-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="k">상하이</span><span class="v">60,940원</span></a>
+    <a class="chip" href="https://flight.naver.com/flights/international/ICN-XMN-20260629/XMN-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="k">샤먼</span><span class="v">469,500원</span></a>
+    <a class="chip" href="https://flight.naver.com/flights/international/ICN-CAN-20260629/CAN-ICN-20260706?adult=1&amp;fareType=Y" target="_blank" rel="noopener"><span class="k">광저우</span><span class="v">142,621원</span></a>
+    <span class="band-src">06.29~07.06 왕복 · 직항 · 네이버 참고가</span>
   </div>
 </div>
 
 <div class="wrap">
 
-  <div class="flowbox">
-    <h2>오늘의 핵심 흐름</h2>
+  <div class="summary">
+    <h2>오늘의 핵심 흐름 · Executive Summary</h2>
     <ol>
       <li><b>베이징 시틱타워 경비행기 충돌 후폭풍</b> — 세계 최강 자부하던 베이징 방공망 허점 노출. 응급구조 외 '통용항공' 전국 중단, 당국 세 문장 발표·관영매체 침묵.</li>
       <li><b>中, 日 기관·기업 40곳 이중용도 수출규제</b> — 2월 이어 두 번째. 미쓰비시·미쓰이 방산계열 정조준. 中·러 군용기 10여 대 KADIZ 진입까지 겹쳐 안보 긴장 고조.</li>
@@ -227,8 +250,8 @@
     </ol>
   </section>
 
-  <div class="top3">
-    <div class="sec-h"><span class="sec-n">Top 3</span><span class="sec-t">오늘의 시사점 · 한국 관점</span></div>
+  <div class="analysis">
+    <div class="sec-h"><span class="sec-n">Analysis · Top 3</span><span class="sec-t">오늘의 시사점 · 한국 관점</span></div>
     <ol>
       <li><b>베이징 방공망 허점 = 시진핑 안보 거버넌스 시험대.</b> 최고지도부 거주지 7㎞ 앞 초고층 빌딩이 경비행기에 뚫렸고, 당국은 세 문장·관영 침묵·통용항공 전국 중단으로 대응. 7.1 창당 105주년 직전이라는 정치적 민감성까지 겹쳐, '안전+통제' 양면의 중국식 위기관리 방식을 그대로 보여준다.</li>
       <li><b>중일 갈등의 경제·안보 동조화.</b> 日 40곳 이중용도 제재·희토류 밀수 구속·中러 KADIZ 진입이 동시 전개. 한국 관점에선 희토류·중희토류 공급망 리스크(일본이 겪는 '탈중국'의 어려움)와 KADIZ 안보 부담이 함께 커지는 신호로, 공급망·방공 양쪽 대비 필요.</li>
@@ -240,9 +263,12 @@
 
 <footer>
   <div class="foot-inner">
-    CHINA DAILY BRIEF · 2026-06-29<br/>
-    SOURCES: 중앙일보 더 차이나 · 연합뉴스 중국<br/>
-    GENERATED BY DO BETTER WORKSPACE · 제목 클릭 시 원문 기사로 이동
+    <div class="foot-mark">차이나 데일리 브리프<span class="dot">.</span></div>
+    <div class="foot-grid">
+      <b>ISSUE</b> 2026-06-29 · CHINA DAILY BRIEF<br/>
+      <b>SOURCES</b> 중앙일보 더 차이나 · 연합뉴스 중국<br/>
+      <b>GENERATED BY</b> DO BETTER WORKSPACE · 제목 클릭 시 원문 기사로 이동
+    </div>
   </div>
 </footer>
 

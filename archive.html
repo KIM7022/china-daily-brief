@@ -5,24 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>지난 호 · 차이나 데일리 브리프</title>
 <style>
-  :root{--bg:#0d0d0f;--panel:#16161a;--line:#2a2a31;--tx:#ececf0;--mut:#9a9aa6;--dim:#6f6f7a;--acc:#e23b3b;--link:#7db1ff;
-    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;--mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;}
+  :root{
+    --bg:#0a0a0c; --bg2:#0e0e12; --panel:#121217; --line:#24242c; --line2:#1a1a20;
+    --tx:#e9e9ef; --mut:#9fa0ac; --dim:#6a6b76; --faint:#4a4b54;
+    --acc:#cf4640; --acc-soft:#e07a74; --link:#8fb8f4;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --mw:840px;
+  }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.6;overflow-x:hidden;}
-  a{color:var(--link);text-decoration:none;} a:hover{text-decoration:underline;}
-  nav.top{position:sticky;top:0;z-index:10;background:rgba(13,13,15,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .nav-inner{max-width:900px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;}
-  .nav-brand{font-weight:800;font-size:15px;} .nav-brand .dot{color:var(--acc);}
-  .nav-links{margin-left:auto;display:flex;gap:18px;font-size:13px;} .nav-links a{color:var(--mut);} .nav-links a.on{color:var(--tx);font-weight:700;}
-  .wrap{max-width:900px;margin:0 auto;padding:40px 20px 60px;}
-  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;}
-  h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:0 0 28px;}
+  html,body{margin:0;}
+  body{background:var(--bg);color:var(--tx);font-family:var(--sans);line-height:1.62;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 600px at 50% -10%,rgba(207,70,64,.05),transparent 70%);background-repeat:no-repeat;}
+  a{color:var(--link);text-decoration:none;} a:hover{text-decoration:underline;text-underline-offset:2px;}
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(10,10,12,.82);backdrop-filter:blur(10px) saturate(120%);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:var(--mw);margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:16px;}
+  .nav-brand{font-weight:700;font-size:15px;} .nav-brand .dot{color:var(--acc);}
+  .nav-links{margin-left:auto;display:flex;gap:20px;font-size:12.5px;}
+  .nav-links a{color:var(--mut);position:relative;padding-bottom:2px;}
+  .nav-links a.on{color:var(--tx);}
+  .nav-links a.on::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:var(--acc);}
+  .wrap{max-width:var(--mw);margin:0 auto;padding:54px 24px 70px;}
+  .masthead-rule{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:22px;}
+  .masthead-rule .ln{flex:1;height:1px;background:linear-gradient(90deg,var(--acc),transparent);opacity:.55;}
+  h1{font-family:var(--serif);font-size:clamp(30px,5vw,42px);font-weight:600;letter-spacing:-.015em;margin:0 0 34px;}
   ul.eds{list-style:none;margin:0;padding:0;}
-  ul.eds li{border-bottom:1px solid var(--line);padding:16px 0;display:flex;align-items:baseline;gap:14px;}
-  ul.eds .date{font-family:var(--mono);font-size:13px;color:var(--dim);min-width:96px;}
+  ul.eds li{border-bottom:1px solid var(--line2);padding:18px 0;display:flex;align-items:baseline;gap:16px;transition:padding-left .18s;position:relative;}
+  ul.eds li:hover{padding-left:8px;}
+  ul.eds li::after{content:"";position:absolute;left:-12px;top:20px;bottom:18px;width:2px;background:var(--acc);opacity:0;transition:opacity .18s;}
+  ul.eds li:hover::after{opacity:.7;}
+  ul.eds .date{font-family:var(--mono);font-size:12.5px;color:var(--dim);min-width:100px;letter-spacing:.04em;}
   ul.eds .ttl{font-size:16px;font-weight:700;}
   ul.eds .ttl a{color:var(--tx);}
-  ul.eds .meta{font-size:12px;color:var(--mut);margin-left:auto;font-family:var(--mono);}
+  ul.eds .ttl a:hover{color:var(--acc-soft);text-decoration:none;}
+  ul.eds .meta{font-size:11.5px;color:var(--mut);margin-left:auto;font-family:var(--mono);letter-spacing:.05em;}
+  @media(max-width:560px){.wrap{padding:38px 20px 50px;}}
 </style>
 </head>
 <body>
@@ -36,9 +54,14 @@
   </div>
 </nav>
 <div class="wrap">
-  <div class="kicker">Archive</div>
+  <div class="masthead-rule"><span>Archive</span><span class="ln"></span><span>지난 호 모아보기</span></div>
   <h1>지난 호</h1>
   <ul class="eds">
+    <li>
+      <span class="date">2026-06-30</span>
+      <span class="ttl"><a href="/china-daily-brief/editions/2026-06-30.html">차이나 데일리 브리프</a></span>
+      <span class="meta">25건</span>
+    </li>
     <li>
       <span class="date">2026-06-29</span>
       <span class="ttl"><a href="/china-daily-brief/editions/2026-06-29.html">차이나 데일리 브리프</a></span>
